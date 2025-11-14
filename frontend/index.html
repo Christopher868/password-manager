@@ -33,7 +33,7 @@
     </header>
 
 
-    <main class="h-screen">
+    <main class="h-fit min-h-screen flex flex-col items-center justify-center">
 
 
       <!-- Website Introduction -->
@@ -42,8 +42,8 @@
           <h2 class="text-3xl lg:text-4xl text-center font-bold text-blue-">Welcome to Password Manager!</h2>
         </div>
 
-        <div class="max-w-100 bg-slate-200/35 p-10 rounded-xl">
-          <p class="text-lg lg:text-xl text-center text-black font-medium">
+        <div class="max-w-100 bg-slate-200/80 p-10 py-15 rounded-xl">
+          <p class="text-lg lg:text-xl text-center font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text">
             With Password Manager you are able to safetly store all your passwords for various different websites
             all in one convenient location.
           </p>
@@ -51,8 +51,44 @@
       </section>
 
 
-      <!-- Passwords Section -->
-       <section></section>
+      <!-- Accounts Section -->
+      <section class=" w-full h-fit flex flex-row wrap gap-x-10 gap-y-5 sm:gap-y-10 flex-wrap justify-center items-start px-6 mb-20 sm:mb-30">
+
+        <!-- Recent Accounts Section -->
+        <div class="w-full h-fit max-w-2xl bg-slate-200/80 p-5 rounded-xl text-center">
+          <h3 id="recent-accounts-btn" class="text-center text-md sm:text-xl font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text hover:cursor-pointer">Most Recent Accounts <i class="fa fa-angle-down"></i></h3>
+
+          <!-- Recent Passwords Container -->
+          <div id="recent-accounts" class="h-0 flex flex-col items-center font-medium text-black overflow-hidden">
+            <ul class="w-full p-3 flex flex-col gap-6 items-center border-t text-lg tracking-tight text-white">
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Steam</a></li>
+              <li class="border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Google</a></li>
+              <li class="border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Epic Games</a></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Accounts -->
+        <div class="w-full max-w-2xl h-fit flex flex-col justify-center items-center bg-slate-200/80 p-5 rounded-xl">
+          <h3 id="accounts-btn" class="text-center w-full text-md sm:text-xl font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text hover:cursor-pointer">Accounts <i class="fa fa-angle-down"></i></h3>
+          <div id="accounts-container" class="w-full max-h-100 h-0 flex flex-col justify-center items-center gap-4 overflow-y-scroll">
+            <input id="search-accounts" class="w-5/6 border border-teal-900 rounded-sm focus:outline-none text-center py-1" type="search" placeholder="Search Accounts">
+            <ul class="w-full font-medium p-3 flex flex-row flex-wrap gap-6 justify-center items-center border-t text-lg text-center tracking-tight text-white">
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Steam</a></li>
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Gmail</a></li>
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Walmart</a></li>
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
+              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
 
     </main>
