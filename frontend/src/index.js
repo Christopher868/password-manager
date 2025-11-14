@@ -1,3 +1,5 @@
+import { changeArrowDirection, toggleClasses } from "./functions"
+
 const menuCloseBtn = document.querySelector('#menu-close-btn')
 const menuBtn = document.querySelector('#menu-btn')
 const collapsingMenu = document.querySelector('#collapsing-menu')
@@ -9,8 +11,9 @@ const accountsContainer = document.querySelector('#accounts-container')
 
 const accounts = document.querySelectorAll('.account')
 
-// Event Listener for document
+
 document.addEventListener('click', (e) => {
+
     // opens and closes side menu
     if(e.target.closest('ul') !== collapsingMenu && e.target.closest('svg') !== menuBtn || e.target.closest('svg') === menuCloseBtn || e.target.closest('svg') === menuBtn && collapsingMenu.classList.contains('w-40')){
        collapsingMenu.classList.replace('w-40', 'w-0') 
@@ -19,29 +22,37 @@ document.addEventListener('click', (e) => {
     }  
     
     
-    // Opens and closes recent accounts section
+    // Opens and closes recent accounts and accounts section. Also changes arrow direction
     if(e.target.closest('h3') === recentAccountsBtn){
-        recentAccounts.classList.toggle('h-0')
-        recentAccounts.classList.toggle('mt-3')
+        toggleClasses(recentAccounts, ['h-0', 'h-100', 'mt-3'])
+        changeArroDirection(recentAccountsBtn, 'Most Recent Accounts');
     } 
 
-    // Opens and closes accounts section
     if(e.target.closest('h3') === accountsBtn){
-        accountsContainer.classList.toggle('h-0')
-        accountsContainer.classList.toggle('p-5')
+        toggleClasses(accountsContainer, ['h-0', 'h-100'])
+        changeArrowDirection(accountsBtn, 'Accounts');
     }
-
 })
 
 
-// Closes side menu after reaching sm breakpoint
 window.addEventListener('resize', () => {
+
+    // Collapses side menu at sm breakpoint
     if(window.innerWidth >= 640){
         collapsingMenu.classList.replace('w-40', 'w-0');
     }
+
+    // auto opens recent accounts and accounts at certain breakpoint
+    if(window.innerWidth >= 1433){
+        recentAccounts.classList.replace('h-0', 'h-100');
+        recentAccounts.classList.add('mt-3');
+
+        accountsContainer.classList.replace('h-0', 'h-100');
+        accountsContainer.classList.add('p-5');
+    }
 })
 
-// Accounts filter
+// Uses search bar to filter accounts
 searchAccounts.addEventListener('input', (e) => {
     accounts.forEach(account => {
         if(!account.innerText.toLowerCase().includes(searchAccounts.value.toLowerCase())){

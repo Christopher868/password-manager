@@ -39,10 +39,10 @@
       <!-- Website Introduction -->
       <section class="flex flex-col xl:flex-row justify-center items-center gap-y-20 gap-x-30 my-20 xl:my-30 px-6 xl:px-20 text-white">
         <div class="max-w-100">
-          <h2 class="text-3xl lg:text-4xl text-center font-bold text-blue-">Welcome to Password Manager!</h2>
+          <h2 class="text-3xl lg:text-4xl text-center font-bold text-shadow-black text-shadow-sm">Welcome to Password Manager!</h2>
         </div>
 
-        <div class="max-w-100 bg-slate-200/80 p-10 py-15 rounded-xl">
+        <div class="max-w-100 bg-white p-10 py-15 rounded-xl shadow-black shadow-xl">
           <p class="text-lg lg:text-xl text-center font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text">
             With Password Manager you are able to safetly store all your passwords for various different websites
             all in one convenient location.
@@ -55,38 +55,47 @@
       <section class=" w-full h-fit flex flex-row wrap gap-x-10 gap-y-5 sm:gap-y-10 flex-wrap justify-center items-start px-6 mb-20 sm:mb-30">
 
         <!-- Recent Accounts Section -->
-        <div class="w-full h-fit max-w-2xl bg-slate-200/80 p-5 rounded-xl text-center">
+        <div class="w-full h-fit max-w-2xl bg-white shadow-black shadow-xl p-5 rounded-xl text-center">
           <h3 id="recent-accounts-btn" class="text-center text-md sm:text-xl font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text hover:cursor-pointer">Most Recent Accounts <i class="fa fa-angle-down"></i></h3>
 
-          <!-- Recent Passwords Container -->
-          <div id="recent-accounts" class="h-0 flex flex-col items-center font-medium text-black overflow-hidden">
-            <ul class="w-full p-3 flex flex-col gap-6 items-center border-t text-lg tracking-tight text-white">
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Steam</a></li>
-              <li class="border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Google</a></li>
-              <li class="border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Epic Games</a></li>
-              <li></li>
-              <li></li>
+          <!-- Recent Accounts Container -->
+          <div id="recent-accounts" class="h-0 flex flex-col items-center font-medium text-black overflow-auto">
+            <ul class="w-full grid grid-cols-1 items-center text-lg text-left tracking-tight text-white bg-black/90 rounded-l-xl overflow-auto" >
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="border py-2 px-4 truncate">Steam <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="border py-2 px-4 truncate">Google <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="border py-2 px-4 truncate">Epic Games <i class="fa fa-angle-right"></i></li></a>
             </ul>
           </div>
         </div>
 
         <!-- Accounts -->
-        <div class="w-full max-w-2xl h-fit flex flex-col justify-center items-center bg-slate-200/80 p-5 rounded-xl">
+        <div class="w-full max-w-2xl h-fit flex flex-col justify-center items-center bg-white shadow-black shadow-xl p-5 rounded-xl">
           <h3 id="accounts-btn" class="text-center w-full text-md sm:text-xl font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text hover:cursor-pointer">Accounts <i class="fa fa-angle-down"></i></h3>
-          <div id="accounts-container" class="w-full max-h-100 h-0 flex flex-col justify-center items-center gap-4 overflow-y-scroll">
-            <input id="search-accounts" class="w-5/6 border border-teal-900 rounded-sm focus:outline-none text-center py-1" type="search" placeholder="Search Accounts">
-            <ul class="w-full font-medium p-3 flex flex-row flex-wrap gap-6 justify-center items-center border-t text-lg text-center tracking-tight text-white">
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Steam</a></li>
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Gmail</a></li>
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Walmart</a></li>
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
-              <li class="account border rounded-xl py-1 px-8 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] grow w-50 truncate"><a class="hover:text-blue-400" href="#">Amazon</a></li>
+
+          <!-- Account container and list of accounts -->
+          <div id="accounts-container" class="w-full max-h-100 h-100 flex flex-col items-center gap-4 overflow-y-auto">
+            <input id="search-accounts" class="w-5/6 border border-teal-900 rounded-md focus:outline-none shadow-black hover:shadow-sm focus:shadow-md text-center py-1 mt-2" type="search" placeholder="Search Accounts">
+            <ul class="w-full h-fit bg-black/90 rounded-l-xl font-medium grid grid-cols-1 text-lg text-left tracking-tight text-white overflow-auto">
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Steam <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Gmail <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Walmart <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Amazon <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Amazon <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Amazon <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Amazon <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Amazon <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Amazon <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Amazon <i class="fa fa-angle-right"></i></li></a>
+              <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Amazon <i class="fa fa-angle-right"></i></li></a>
             </ul>
+
+            <!-- Button container for adding and removing accounts -->
+            <div class="w-full flex flex-wrap gap-4 p-2 text-white font-medium leading-5 whitespace-nowrap">
+              <a class="hover:cursor-pointer grow" href="#"><button type="button" class="bg-black/90 w-full py-2 px-4 rounded-xl shadow-black hover:shadow-md hover:text-blue-400">Add Account</button></a>
+              <a class="hover:cursor-pointer grow" href="#"><button type="button" class="bg-black/90 w-full py-2 px-4 rounded-xl shadow-black hover:shadow-md hover:text-blue-400">Remove Account</button></a>
+            </div>
           </div>
+          
         </div>
       </section>
 
