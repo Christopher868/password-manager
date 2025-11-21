@@ -33,6 +33,13 @@ document.addEventListener('click', (e) => {
         changeArrowDirection(accountsBtn, 'Accounts');
     }
 })
+// Opens recent accounts and accounts if viewport is above a certain width on refresh
+if(window.innerWidth >= 1433){
+        recentAccounts.classList.replace('h-0', 'h-100');
+        recentAccounts.classList.add('mt-3');
+
+        accountsContainer.classList.replace('h-0', 'h-100');
+    }
 
 
 window.addEventListener('resize', () => {
@@ -48,7 +55,6 @@ window.addEventListener('resize', () => {
         recentAccounts.classList.add('mt-3');
 
         accountsContainer.classList.replace('h-0', 'h-100');
-        accountsContainer.classList.add('p-5');
     }
 })
 

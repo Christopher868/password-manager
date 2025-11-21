@@ -12,7 +12,7 @@
 
     <header class=" h-17 sticky top-0">
       <nav class="w-full h-full px-6 text-white bg-transparent flex justify-between items-center sticky top-0">
-        <h1 class="font-black text-2xl hover:text-shadow-sm text-shadow-black">Password Manager</h1>
+        <h1 class="font-black sm:text-2xl text-md hover:text-shadow-sm text-shadow-black">Password Manager</h1>
 
         <!-- Large Nav -->
         <ul class="hidden sm:flex gap-1 font-bold text-lg">
@@ -23,7 +23,7 @@
         <!-- Small Nav -->
         <div class="relative sm:hidden fill-white">
           <svg id="menu-btn" class="size-7 sm:size-8 drop-shadow-xs hover:drop-shadow-sm hover:drop-shadow-black drop-shadow-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e3e3e3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-          <ul id="collapsing-menu" class="z-100 w-0 h-screen py-5 bg-linear-to-b from-[#2c3e50]/70 to-[#4ca1af]/70 flex flex-col items-center gap-5 font-bold text-lg absolute -right-6 -top-6 overflow-hidden transition-all duration-500">
+          <ul id="collapsing-menu" class="z-100 w-0 h-screen py-5 bg-linear-to-b from-[#2c3e50] to-[#4ca1af] flex flex-col items-center gap-5 font-bold text-lg absolute -right-6 -top-6 overflow-hidden transition-all duration-500">
             <li class="mr-auto ml-4"><svg id="menu-close-btn" class="size-7 sm:size-8 hover:drop-shadow-sm hover:drop-shadow-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></li>
             <li class="py-1 px-4 hover:shadow-md shadow-blue-400 rounded-xl active:shadow-inner hover:text-shadow-sm text-shadow-black"><a href="#">Login</a></li>
             <li class="py-1 px-4 hover:shadow-md shadow-blue-400 rounded-xl active:shadow-inner hover:text-shadow-sm text-shadow-black"><a href="#">About</a></li>
@@ -33,17 +33,17 @@
     </header>
 
 
-    <main class="h-fit min-h-screen flex flex-col items-center justify-center">
+    <main class="max-w-[1440px] mx-auto min-h-screen flex flex-col items-center justify-center">
 
 
       <!-- Website Introduction -->
-      <section class="flex flex-col xl:flex-row justify-center items-center gap-y-20 gap-x-30 my-20 xl:my-30 px-6 xl:px-20 text-white">
+      <section class="flex flex-col xl:flex-row justify-center items-center gap-y-20 gap-x-80 py-20 xl:py-30 px-6 xl:px-20 text-white">
         <div class="max-w-100">
-          <h2 class="text-3xl lg:text-4xl text-center font-bold text-shadow-black text-shadow-sm">Welcome to Password Manager!</h2>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl text-center font-bold text-shadow-black text-shadow-sm">Welcome to Password Manager!</h2>
         </div>
 
-        <div class="max-w-100 bg-white p-10 py-15 rounded-xl shadow-black shadow-xl">
-          <p class="text-lg lg:text-xl text-center font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text">
+        <div class="max-w-100 bg-white p-10 rounded-xl shadow-black shadow-xl">
+          <p class="text-sm sm:text-lg lg:text-xl text-center font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text">
             With Password Manager you are able to safetly store all your passwords for various different websites
             all in one convenient location.
           </p>
