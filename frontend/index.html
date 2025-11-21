@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="/src/images/lock.svg" />
     <title>Password Manager</title>
   </head>
-  <body class="bg-linear-to-b from-[#2c3e50] to-[#4ca1af]">
+  <body class="font-['Open_Sans'] bg-linear-to-b from-[#2c3e50] to-[#4ca1af]">
 
     <header class=" h-17 sticky top-0">
       <nav class="w-full h-full px-6 text-white bg-transparent flex justify-between items-center sticky top-0">
@@ -16,7 +16,27 @@
 
         <!-- Large Nav -->
         <ul class="hidden sm:flex gap-1 font-bold text-lg">
-          <li class="py-1 px-4 hover:shadow-md shadow-blue-500 rounded-xl active:shadow-inner hover:text-shadow-sm text-shadow-black"><a href="#">Login</a></li>
+
+          <!-- login button and form -->
+          <li id="form-btn" class="relative py-1 px-4 hover:shadow-md shadow-blue-500 rounded-xl active:shadow-inner hover:text-shadow-sm text-shadow-black">
+            <a href="#">
+              Login
+              <div id="form-container" class="absolute hidden top-12 right-0 bg-white p-2 rounded-lg hover:text-shadow-none shadow-lg shadow-black">
+                <p class="text-blue-400 text-shadow-2xs text-shadow-black/50 text-center text-2xl">Login</p>
+                <form id="form" class="p-3 flex flex-col gap-5 font-medium text-black">
+                  
+                  <input type="email" id="email" placeholder="Email Address"
+                  class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
+                  <input type="password" id="password" placeholder="Password"
+                  class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
+                  <button id="submit-form" type="submit" class="border border-black text-blue-400 rounded-lg max-w-30 mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Login</button>
+
+                </form>
+                <p id="form-status" class="text-black text-center"></p>
+              </div>
+            </a>
+          </li>
+
           <li class="py-1 px-4 hover:shadow-md shadow-blue-500 rounded-xl active:shadow-inner hover:text-shadow-sm text-shadow-black"><a href="#">About</a></li>
         </ul>
 
@@ -33,11 +53,11 @@
     </header>
 
 
-    <main class="max-w-[1440px] mx-auto min-h-screen flex flex-col items-center justify-center">
+    <main class="max-w-[1440px] mx-auto min-h-screen flex flex-col items-center justify-center gap-5 sm:gap-20">
 
 
       <!-- Website Introduction -->
-      <section class="flex flex-col xl:flex-row justify-center items-center gap-y-20 gap-x-80 py-20 xl:py-30 px-6 xl:px-20 text-white">
+      <section class="flex flex-col xl:flex-row justify-center items-center gap-y-15 gap-x-80 py-10 xl:py-15 px-6 xl:px-20 text-white">
         <div class="max-w-100">
           <h2 class="text-2xl sm:text-3xl lg:text-4xl text-center font-bold text-shadow-black text-shadow-sm">Welcome to Password Manager!</h2>
         </div>
@@ -56,7 +76,7 @@
 
         <!-- Recent Accounts Section -->
         <div class="w-full h-fit max-w-2xl bg-white shadow-black shadow-xl p-5 rounded-xl text-center">
-          <h3 id="recent-accounts-btn" class="text-center text-md sm:text-xl font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text hover:cursor-pointer">Most Recent Accounts <i class="fa fa-angle-down"></i></h3>
+          <h3 id="recent-accounts-btn" class="text-center text-md sm:text-xl font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text hover:cursor-pointer">Most Recent Accounts <i class="fa fa-angle-up"></i></h3>
 
           <!-- Recent Accounts Container -->
           <div id="recent-accounts" class="h-0 flex flex-col items-center font-medium text-black overflow-auto">
@@ -70,12 +90,12 @@
 
         <!-- Accounts -->
         <div class="w-full max-w-2xl h-fit flex flex-col justify-center items-center bg-white shadow-black shadow-xl p-5 rounded-xl">
-          <h3 id="accounts-btn" class="text-center w-full text-md sm:text-xl font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text hover:cursor-pointer">Accounts <i class="fa fa-angle-down"></i></h3>
+          <h3 id="accounts-btn" class="text-center w-full text-md sm:text-xl font-bold bg-linear-to-b from-[#2c3e50] to-[#4ca1af] text-transparent bg-clip-text hover:cursor-pointer">Accounts <i class="fa fa-angle-up"></i></h3>
 
           <!-- Account container and list of accounts -->
           <div id="accounts-container" class="w-full h-0 flex flex-col items-center gap-4 overflow-y-auto">
             <input id="search-accounts" class="w-5/6 border border-teal-900 rounded-md focus:outline-none shadow-black hover:shadow-sm focus:shadow-md text-center py-1 mt-2" type="search" placeholder="Search Accounts">
-            <ul class="w-full h-100 bg-black/90 rounded-l-xl font-medium grid grid-cols-1 sm:grid-cols-2 text-lg text-left tracking-tight text-white overflow-auto">
+            <ul id="accounts-list" class="w-full h-100 bg-black/90 rounded-l-xl font-medium grid grid-cols-1 sm:grid-cols-2 text-lg text-left tracking-tight text-white overflow-auto">
               <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Steam <i class="fa fa-angle-right"></i></li></a>
               <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Gmail <i class="fa fa-angle-right"></i></li></a>
               <a class="shadow-black hover:shadow-md hover:text-blue-400" href="#"><li class="account border py-2 px-4 truncate">Walmart <i class="fa fa-angle-right"></i></li></a>
