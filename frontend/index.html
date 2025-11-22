@@ -19,22 +19,20 @@
 
           <!-- login button and form -->
           <li id="form-btn" class="relative py-1 px-4 hover:shadow-md shadow-blue-500 rounded-xl active:shadow-inner hover:text-shadow-sm text-shadow-black">
-            <a href="#">
-              Login
-              <div id="form-container" class="absolute hidden top-12 right-0 bg-white p-2 rounded-lg hover:text-shadow-none shadow-lg shadow-black">
-                <p class="text-blue-400 text-shadow-2xs text-shadow-black/50 text-center text-2xl">Login</p>
-                <form id="form" class="p-3 flex flex-col gap-5 font-medium text-black">
-                  
-                  <input type="email" id="email" placeholder="Email Address"
-                  class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
-                  <input type="password" id="password" placeholder="Password"
-                  class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
-                  <button id="submit-form" type="submit" class="border border-black text-blue-400 rounded-lg max-w-30 mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Login</button>
+            <a href="#">Login</a>
+            <div id="form-container" class="absolute hidden top-12 right-0 bg-white p-2 rounded-lg hover:text-shadow-none shadow-lg shadow-black">
+              <p id="form-header" class="text-blue-400 text-shadow-2xs text-shadow-black/50 text-center text-2xl">Login</p>
+              <form id="form" class="p-3 flex flex-col gap-5 font-medium text-black">
+                
+                <input type="email" id="email" placeholder="Email Address"
+                class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
+                <input type="password" id="password" placeholder="Password"
+                class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
+                <button id="submit-form" type="submit" class="border border-black text-blue-400 rounded-lg max-w-30 mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Login</button>
 
-                </form>
-                <p id="form-status" class="text-black text-center"></p>
-              </div>
-            </a>
+              </form>
+              <p id="form-status" class="text-black text-center"></p>
+            </div>
           </li>
 
           <li class="py-1 px-4 hover:shadow-md shadow-blue-500 rounded-xl active:shadow-inner hover:text-shadow-sm text-shadow-black"><a href="#">About</a></li>

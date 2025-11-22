@@ -1,5 +1,5 @@
 import { changeArrowDirection, toggleClasses } from "./functions"
-import { login, fetchData } from "./authorization"
+import { login, fetchData, logoutUser, userSignUp } from "./userAccount"
 import { fetchAccounts } from "./fetch-accounts"
 
 const menuCloseBtn = document.querySelector('#menu-close-btn')
@@ -13,13 +13,15 @@ const accountsContainer = document.querySelector('#accounts-container')
 const formContainer = document.querySelector('#form-container')
 const formBtn = document.querySelector('#form-btn')
 const form = document.querySelector('#form')
+const formHeader = document.querySelector('#form-header')
 const formStatus = document.querySelector('#form-status')
 const accounts = document.querySelectorAll('.account')
 const accountsList = document.querySelector('#accounts-list')
 
+
 // Fetches user's data if they are logged in and displays logged in user's accounts
 async function checkForUser() {
-    const response = await fetchData(formBtn, formContainer);
+    const response = await fetchData(formBtn.children[0], form, formHeader);
     if(response !== false){
         await fetchAccounts(response, accountsList)
     }
@@ -31,15 +33,32 @@ checkForUser();
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
-    const email = document.querySelector('#email').value
-    const password = document.querySelector('#password').value
+    // if statement for login form
+    if(formHeader.textContent === "Login"){
+        const email = document.querySelector('#email').value
+        const password = document.querySelector('#password').value
+        const result = await login(email, password, formStatus, form, formBtn.children[0], formHeader)
+        if(result){
+            setTimeout(()=> {
+                formContainer.classList.add('hidden')
+                formStatus.textContent= ''; 
+            }, 2000)   
+        }
 
-    const result = await login(email, password, formStatus)
+    // if statement register form
+    } else if(formHeader.textContent === "Register"){
+        console.log('hello')
+
+    // if statement for account form
+    } else if(formHeader.textContent === "Account"){
+        await logoutUser(formBtn.children[0], form, formHeader);
+        formContainer.classList.add('hidden')
+    }
+    
 })
 
 
 document.addEventListener('click', (e) => {
-    console.log(e.target)
     // opens and closes side menu
     if(e.target.closest('ul') !== collapsingMenu && e.target.closest('svg') !== menuBtn || e.target.closest('svg') === menuCloseBtn || e.target.closest('svg') === menuBtn && collapsingMenu.classList.contains('w-40')){
        collapsingMenu.classList.replace('w-40', 'w-0') 
