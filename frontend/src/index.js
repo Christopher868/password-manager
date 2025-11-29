@@ -1,6 +1,8 @@
-import { changeArrowDirection, toggleClasses } from "./functions"
-import { login, fetchData, logoutUser, userSignUp } from "./userAccount"
-import { fetchAccounts } from "./fetch-accounts"
+import { changeArrowDirection, toggleClasses, changeStatusColor } from "./utilities/functions"
+import { login, fetchData, logoutUser, userSignUp } from "./utilities/userAccount"
+import { fetchAccounts } from "./utilities/fetch-accounts"
+import { registerForm, loginForm } from "./utilities/forms";
+
 
 const menuCloseBtn = document.querySelector('#menu-close-btn')
 const menuBtn = document.querySelector('#menu-btn')
@@ -29,15 +31,18 @@ async function checkForUser() {
 
 checkForUser();
 
-// login form event listener
+// Form submit event listener
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
+  
 
     // if statement for login form
     if(formHeader.textContent === "Login"){
         const email = document.querySelector('#email').value
         const password = document.querySelector('#password').value
+
         const result = await login(email, password, formStatus, form, formBtn.children[0], formHeader)
+
         if(result){
             setTimeout(()=> {
                 formContainer.classList.add('hidden')
@@ -47,18 +52,36 @@ form.addEventListener('submit', async (e) => {
 
     // if statement register form
     } else if(formHeader.textContent === "Register"){
-        console.log('hello')
+
+        const email = document.querySelector('#email').value
+        const password1 = document.querySelector('#password1').value
+        const password2 = document.querySelector('#password2').value
+
+        if(password1 !== password2){
+            changeStatusColor('red', formStatus)
+            formStatus.textContent = 'Passwords must match!';
+        } else {
+            
+            const result = await userSignUp(email, password1, formStatus, formBtn.children[0], formHeader, form)
+
+            if(result){
+            setTimeout(()=> {
+                formContainer.classList.add('hidden')
+                formStatus.textContent= ''; 
+            }, 2000)   
+            }
+        }
 
     // if statement for account form
     } else if(formHeader.textContent === "Account"){
-        await logoutUser(formBtn.children[0], form, formHeader);
-        formContainer.classList.add('hidden')
+        console.log('saved!')
     }
     
 })
 
 
-document.addEventListener('click', (e) => {
+
+document.addEventListener('click', async (e) => {
     // opens and closes side menu
     if(e.target.closest('ul') !== collapsingMenu && e.target.closest('svg') !== menuBtn || e.target.closest('svg') === menuCloseBtn || e.target.closest('svg') === menuBtn && collapsingMenu.classList.contains('w-40')){
        collapsingMenu.classList.replace('w-40', 'w-0') 
@@ -84,7 +107,29 @@ document.addEventListener('click', (e) => {
     } else if (e.target.closest('li') === formBtn && e.target.closest('div') !== formContainer) {
         formContainer.classList.toggle('hidden')
     }
+
+    
+    // Changes to register form when you click register link in login form
+    const registerBtn = document.querySelector('#register-btn')
+    const cancelBtn = document.querySelector('#cancel-btn')
+    if(e.target === registerBtn){
+        form.innerHTML = registerForm
+        formHeader.textContent = 'Register'
+    } else if(e.target === cancelBtn){
+        form.innerHTML = loginForm
+        formHeader.textContent = 'Login'
+
+    }
+
+    const logoutBtn = document.querySelector('#logout-btn')
+    if(e.target === logoutBtn){
+        await logoutUser(formBtn.children[0], form, formHeader);
+        formContainer.classList.add('hidden');
+    }
 })
+
+
+
 
 
 // Opens recent accounts and accounts if viewport is above a certain width on refresh

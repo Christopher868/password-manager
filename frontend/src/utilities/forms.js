@@ -6,10 +6,12 @@ export const loginForm =
             class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
             <input type="password" id="password" placeholder="Password"
             class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
-            <button id="submit-form" type="submit" class="border border-black text-blue-400 rounded-lg max-w-30 mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Login</button>
+            <button id="submit-form" type="submit" class="border border-black text-blue-400 rounded-lg max-w-40 w-full mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Login</button>
+            <p class="text-black text-center text-shadow-none">New user? register <a id="register-btn" href="#" class="text-blue-400 hover:text-blue-800">here</a></p>
 
         </form>
-        <p id="form-status" class="text-black text-center"></p>`
+        
+`;
 
 
 export const registerForm = 
@@ -22,10 +24,11 @@ export const registerForm =
             class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
             <input type="password" id="password2" placeholder="Re-enter Password"
             class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
-            <button id="submit-form" type="submit" class="border border-black text-blue-400 rounded-lg max-w-30 mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Register</button>
-
+            <button id="submit-form" type="submit" class="border border-black text-blue-400 rounded-lg max-w-40 w-full mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Register</button>
+            <button id="cancel-btn" type="button" class="border border-black text-blue-400 rounded-lg max-w-40 w-full mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Cancel</button>
+            
         </form>
-        <p id="form-status" class="text-black text-center"></p>
+        
 `;
 
 
@@ -39,7 +42,8 @@ export const accountForm =
             class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
             <input type="password" id="password2" placeholder="Re-enter Password"
             class="focus:outline-none border border-black rounded-lg text-center shadow-black hover:shadow-xs focus:shadow-sm" required/>
-            <button id="submit-form" type="submit" class="border border-black text-blue-400 rounded-lg max-w-30 mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Register</button>
-
+            <button id="submit-form" type="submit" class="border border-black text-blue-400 rounded-lg max-w-40 w-full mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Save Changes</button>
+            <button id="logout-btn" type="button"  class="border border-black text-blue-400 rounded-lg max-w-40 w-full mx-auto px-6 font-semibold shadow-xs hover:shadow-md shadow-black/50">Logout</button>
+            
         </form>
 `;

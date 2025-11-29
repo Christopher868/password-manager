@@ -1,8 +1,11 @@
 import { supabase } from './supabase.js'
 import { loginForm, accountForm, registerForm } from './forms.js'
+import { changeStatusColor } from './functions.js'
 
-// Logs user into an account
+
+// Function for handling user login
 export async function login(email, password, formStatus, form, formBtn, formHeader){
+    changeStatusColor('black', formStatus)
     formStatus.textContent ="Logging in..."
 
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -12,15 +15,14 @@ export async function login(email, password, formStatus, form, formBtn, formHead
 
     // handling errors
     if(error) {
+        changeStatusColor('red', formStatus)
         formStatus.textContent = `Error: Invalid login credentials`
         console.log(error)
-        formStatus.classList.remove('text-black');
-        formStatus.classList.add('text-red-400');
+        
         return false
     } else {
         formStatus.textContent = `Login Successful!`
-        formStatus.classList.remove('text-black');
-        formStatus.classList.add('text-green-400');
+        changeStatusColor('green', formStatus)
         formBtn.textContent = "Account"
         formHeader.textContent = "Account" 
         form.innerHTML = accountForm
@@ -30,7 +32,7 @@ export async function login(email, password, formStatus, form, formBtn, formHead
 }
 
 
-// logs out user
+// Fuction for handling logging out user
 export async function logoutUser(formBtn, form, formHeader){
     const { error } = await supabase.auth.signOut();
 
@@ -46,6 +48,34 @@ export async function logoutUser(formBtn, form, formHeader){
     form.innerHTML = loginForm
 
 } 
+
+
+// Function for handling user signup
+export async function userSignUp(email, password, formStatus, formBtn, formHeader, form){
+    const { data, error } = await supabase.auth.signUp({
+        email:email,
+        password: password,
+    })
+    console.log(error)
+    console.log(data.user)
+    if(error){
+        changeStatusColor('red', formStatus)
+        formStatus.textContent = error.message
+        console.error('Sign-up error: ', error.message);
+        return false
+    }
+
+    if(data.user) {
+        alert('Registeration Successful!')
+        await login(email, password, formStatus, form, formBtn, formHeader)
+        return true
+    }
+
+    
+
+}
+
+
 
 // Sends request to backend to verify token returns user data
 export async function fetchData(formBtn, form, formHeader){
@@ -85,20 +115,3 @@ export async function fetchData(formBtn, form, formHeader){
 
 }
 
-
-// Function for handing signup
-export async function userSignUp(email, password){
-    const { data, error } = await supabase.auth.signUp({
-        email:email,
-        password: password,
-    })
-
-    if(error){
-        console.error('Sign-up error: ', error.message);
-        return
-    }
-
-    if(data.user) {
-        alert('Check your email for the confirmation link!');
-    }
-}
